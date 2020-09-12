@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "815464535572",
+    "firebase_url": "https://segfaults.firebaseio.com",
+    "project_id": "segfaults",
+    "storage_bucket": "segfaults.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815464535572:android:5cb2f44c04f6eddbc67901",
+        "android_client_info": {
+          "package_name": "com.example.vamsi.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815464535572-5cug5qpnp8s3a3fo0crt694746iu5f2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vamsi.login",
+            "certificate_hash": "6c7bfaeea85ac77438bf94dbce9edcf3bdd7be71"
+          }
+        },
+        {
+          "client_id": "815464535572-lu6ge8spf11vg3rbtp5c6jjddqg4gfqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEH3QsIe72W2ma3-Ck7LAfq8MtXdMLwR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815464535572-lu6ge8spf11vg3rbtp5c6jjddqg4gfqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
