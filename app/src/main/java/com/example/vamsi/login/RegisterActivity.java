@@ -65,7 +65,6 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     Map<String, Object> client = new HashMap<>();
                     client.put("fullName", fname);
-                    client.put("username", "test");
                     client.put("email", fGmail);
                     client.put("cellnumber", fPhone);
                     client.put("password", fPassword);
@@ -89,12 +88,13 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+//    FIXME delete this
     private void register(){
-        Map<String, Object> client = new HashMap<>();
-        client.put("fullName", "Velile Vamba");
-        client.put("username", "Velly");
-        client.put("email", "velly.vamba@gmail.com");
-        client.put("cellnumber", "0783420562");
+//        Map<String, Object> client = new HashMap<>();
+//        client.put("fullName", "Velile Vamba");
+//        client.put("username", "Velly");
+//        client.put("email", "velly.vamba@gmail.com");
+//        client.put("cellnumber", "0783420562");
 
 //        dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 //            @Override
