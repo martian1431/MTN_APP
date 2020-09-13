@@ -63,7 +63,17 @@ public class RegisterActivity extends AppCompatActivity {
                 if (fname.isEmpty() || fPassword.isEmpty() || fGmail.isEmpty() || fPhone.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Please fill all the details", Toast.LENGTH_SHORT).show();
                 } else {
-                insertData(fname,fPhone,fGmail,fPassword);
+                    Map<String, Object> client = new HashMap<>();
+                    client.put("fullName", fname);
+                    client.put("email", fGmail);
+                    client.put("cellnumber", fPhone);
+                    client.put("password", fPassword);
+                    dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
+                    });
                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
             }
             }
@@ -78,20 +88,22 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+//    FIXME delete this
     private void register(){
-        Map<String, Object> client = new HashMap<>();
-        client.put("fullName", "Velile Vamba");
-        client.put("username", "Velly");
-        client.put("email", "velly.vamba@gmail.com");
-        client.put("cellnumber", "0783420562");
+//        Map<String, Object> client = new HashMap<>();
+//        client.put("fullName", "Velile Vamba");
+//        client.put("username", "Velly");
+//        client.put("email", "velly.vamba@gmail.com");
+//        client.put("cellnumber", "0783420562");
 
-        dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
-            }
-        });
+//        dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//            @Override
+//            public void onSuccess(DocumentReference documentReference) {
+//                Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
+//            }
+//        });
     }
+
     public void insertData(String fname,String fPhone,String fGmail,String fPassword){
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.COL_2,fname);
