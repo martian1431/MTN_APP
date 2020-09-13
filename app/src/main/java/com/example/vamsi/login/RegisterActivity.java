@@ -4,12 +4,15 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button registerBtn,gotoLoginBtn;
@@ -17,12 +20,20 @@ public class RegisterActivity extends AppCompatActivity {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase db;
     private EditText regName,regPhone,regGmail,regPassword;
+    //firebase
+    private FirebaseAnalytics firebaseAnalytics; //for analytics
+    private FirebaseFirestore dataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
         openHelper = new DatabaseHelper(this);
+        //firebase analytics instance
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        dataBase = FirebaseFirestore.getInstance();
+
 
         registerBtn = findViewById(R.id.btnRegLogin);
         gotoLoginBtn = findViewById(R.id.btnGotoLogin);
