@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -28,5 +29,7 @@ dependencies {
     // firebase
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
+    //fix Cannot fit requested classes in a single dex file (# methods: 81156 > 65536)
+    implementation 'com.android.support:multidex:1.0.3'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

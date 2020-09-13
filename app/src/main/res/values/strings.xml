@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Login</string>
+    <string name="client_registered">User succesfully created</string>
 </resources>
