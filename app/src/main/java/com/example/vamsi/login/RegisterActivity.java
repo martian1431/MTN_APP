@@ -6,13 +6,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.vamsi.login.models.Client;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.internal.$Gson$Preconditions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button registerBtn,gotoLoginBtn;
@@ -42,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
         regGmail = findViewById(R.id.etRegGmail);
         regPassword = findViewById(R.id.etRegPassword);
 
+        register();
+
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +74,21 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(RegisterActivity.this,MainActivity.class));
                 finish();
+            }
+        });
+    }
+
+    private void register(){
+        Map<String, Object> client = new HashMap<>();
+        client.put("fullName", "Velile Vamba");
+        client.put("username", "Velly");
+        client.put("email", "velly.vamba@gmail.com");
+        client.put("cellnumber", "0783420562");
+
+        dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
             }
         });
     }
