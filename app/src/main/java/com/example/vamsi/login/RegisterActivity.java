@@ -88,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
         dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
+             //   Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
             }
         });
     }
