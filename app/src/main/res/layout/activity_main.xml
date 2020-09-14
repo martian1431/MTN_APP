@@ -89,11 +89,12 @@
                 android:text="New User? Register"
                 android:textSize="22sp" />
 
+                <Contentview
                 firstName = findViewById(R.id.firstName);
 		        lastName = findViewById(R.id.lastName);
 		        address = findViewById(R.id.address);
 		        email = findViewById(R.id.email);
-		        submit = findViewById(R.id.submit);
+		        submit = findViewById(R.id.submit); />
 
         </LinearLayout>
     </ScrollView>
