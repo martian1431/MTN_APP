@@ -101,10 +101,6 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
             }
         });
-
-
-//      TODO  retrieve data
-
     }
 
     public void insertData(String fname,String fPhone,String fGmail,String fPassword){
