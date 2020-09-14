@@ -13,6 +13,7 @@ public class VideoChat extends AppCompatActivity implements Connector.IConnect {
 
     private Connector vc;
     private FrameLayout videoFrame;
+    private String const apiToken = "cHJvdmlzaW9uAHNlZ2F1bHRAY2U5ODAyLnZpZHlvLmlvADYzNzY3Mzk0ODkxAAAxYTA1MDRhNTQ2MmRjMDhlMjhlMDg4MjZmMTNhNWJlZWY2OTc0NjAzMTcxYTNmN2ZiZTA4NjczYmMyNGY2ZTE2ZWZhNTk3NjliZDYwZTUyY2ZiZGI3NWMwYzAyZWFiOTk=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,12 @@ public class VideoChat extends AppCompatActivity implements Connector.IConnect {
     }
 
     public void Start(View v) {
-        vc = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 15, "warning info@VidyoClient info@VidyoConnector", "", 0);
+        vc = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 2, "r", "", 0);
         vc.showViewAt(videoFrame, 0, 0, videoFrame.getWidth(), videoFrame.getHeight());
     }
 
     public void Connect(View v) {
-        String token = "InsertValidTokenHere";
-        vc.connect("prod.vidyo.io", token, "DemoUser", "DemoRoom", this);
+        vc.connect("prod.vidyo.io", apiToken, 'DemoUser' , "DemoRoom", this);
     }
 
     public void Disconnect(View v) {
