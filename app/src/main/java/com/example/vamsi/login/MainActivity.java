@@ -23,14 +23,8 @@ import com.google.firebase.auth.MultiFactorResolver;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvRegister;
     private EditText etLoginGmail, etLoginPassword;
-//    private Button loginButton;
-//
-//    private SQLiteDatabase db;
-//    private SQLiteOpenHelper openHelper;
-//    private Cursor cursor;
 
     private static final String TAG = "EmailPassword";
-//    private ActivityEmailpasswordBinding mBinding;
     private FirebaseAuth mAuth;
 
 
@@ -41,8 +35,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
-//        openHelper = new DatabaseHelper(this);
-//        db = openHelper.getReadableDatabase();
         tvRegister = findViewById(R.id.tvRegister);
         etLoginGmail = findViewById(R.id.email);
         etLoginPassword = findViewById(R.id.password);
@@ -88,6 +80,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         System.out.println("check if user is logged in" + currentUser);
+        //
+        if(currentUser != null){
+            startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+            finish();
+        }
     }
 
     @Override
@@ -103,7 +100,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "email:" + email);
         Log.d(TAG, "password:" + password);
         if (!validateForm()) {
-            return;
+            Toast.makeText(MainActivity.this, "Wrong username or password.",
+                    Toast.LENGTH_SHORT).show();
         }
 
         showProgressBar();
@@ -116,10 +114,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
-//                    TODO go to dashboard
-//                    System.out.println("debug: " + user);
-//                    updateUI(user);
+                    startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+                    finish();
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.getException());
