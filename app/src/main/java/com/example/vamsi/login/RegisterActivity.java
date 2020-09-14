@@ -87,4 +87,29 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+//    FIXME move this to book form
+    private void register(){
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", "martian1431");
+        data.put("issue", "Specify the issue");
+
+//        insert data
+        dataBase.collection("Appointments").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
+            }
+        });
+    }
+
+    public void insertData(String fname,String fPhone,String fGmail,String fPassword){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.COL_2,fname);
+        contentValues.put(DatabaseHelper.COL_3,fPhone);
+        contentValues.put(DatabaseHelper.COL_4,fGmail);
+        contentValues.put(DatabaseHelper.COL_5,fPassword);
+
+        long id = db.insert(DatabaseHelper.TABLE_NAME,null,contentValues);
+    }
 }
