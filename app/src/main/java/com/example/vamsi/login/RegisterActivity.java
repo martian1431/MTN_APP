@@ -87,30 +87,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-
-    //    FIXME delete this
-    private void register(){
-//        Map<String, Object> client = new HashMap<>();
-//        client.put("fullName", "Velile Vamba");
-//        client.put("username", "Velly");
-//        client.put("email", "velly.vamba@gmail.com");
-//        client.put("cellnumber", "0783420562");
-
-//        dataBase.collection("Clients").add(client).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//            @Override
-//            public void onSuccess(DocumentReference documentReference) {
-//                Log.d("FireStore", "DocumentSnapshot added with ID: " + documentReference.getId());
-//            }
-//        });
-    }
-
-    public void insertData(String fname,String fPhone,String fGmail,String fPassword){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.COL_2,fname);
-        contentValues.put(DatabaseHelper.COL_3,fPhone);
-        contentValues.put(DatabaseHelper.COL_4,fGmail);
-        contentValues.put(DatabaseHelper.COL_5,fPassword);
-
-        long id = db.insert(DatabaseHelper.TABLE_NAME,null,contentValues);
-    }
 }
