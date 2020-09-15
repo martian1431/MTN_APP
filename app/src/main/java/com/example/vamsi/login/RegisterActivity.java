@@ -91,7 +91,8 @@ public class RegisterActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("user_id", returnId);
                     editor.commit();
-                    Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterActivity.this,UserDashboard.class));
+                    finish();
                 }
             }
             }
@@ -113,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //if user is signed in
         if(currentUser != null){
-            startActivity(new Intent(this,MainActivity.class)); //must redirect to dashboard
+            startActivity(new Intent(this,UserDashboard.class)); //must redirect to dashboard
         }
     }
 
